@@ -1,0 +1,23 @@
+body {
+    background-color: #222222;
+    color: #dddddd;
+    font-family: Oswald;
+    text-align: center;
+    font-size: 0.8rem;
+    --argovix-red: #d24829ff;
+    --argovix-dark-blue: #19437fff;
+    --argovix-light-blue: #40aebb;
+    --argovix-green: #679436ff;
+    --argovix-yellow: #f0b446ff;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 200;
+}
+
+h2,
+h3 {
+    margin: 0px;
+}
