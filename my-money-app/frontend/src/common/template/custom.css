@@ -29,3 +29,9 @@
     bottom: 0px;
     width: 100%;
 }
+
+.spacer {
+    padding-left: 35px;
+    display: flex;
+    flex: 1;
+}

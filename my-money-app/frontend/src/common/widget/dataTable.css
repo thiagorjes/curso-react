@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'Ubuntu-Regular';
+    src: url('../../fonts/Ubuntu-Regular.ttf');
+  }
+
+table {
+    font-family: Ubuntu-Regular;
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+th:first-child {
+    border-right: 1px solid #ccc;
+    border-left: 1px solid transparent;
+    overflow: hidden;
+}
+th {
+    margin: 1px;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    overflow: hidden;
+}
+th:last-child {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid transparent;
+    overflow: hidden;
+}
+
+
+td:first-child {
+    border-right: 1px solid #ccc;
+    border-left: 1px solid transparent;
+    overflow: hidden;
+}
+td {
+    margin: 1px;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    overflow: hidden;
+}
+td:last-child {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid transparent;
+    overflow: hidden;
+}
+
+tbody tr:last-child {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid #ccc;
+    overflow: hidden;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    overflow: hidden;
+}
+
+table,td, th {
+    padding: 2px 5px;
+}

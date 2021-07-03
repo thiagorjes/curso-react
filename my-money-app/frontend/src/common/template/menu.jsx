@@ -9,6 +9,8 @@ const Menu = (props) => {
             <MenuTree label='Cadastro' icon='edit'>
                 <MenuItem path='#billingCycles' label='Ciclos de Pagamentos' icon='usd' />
             </MenuTree>
+            <MenuItem label='Relatórios' icon='circle' path='#report'></MenuItem>
+            <MenuItem label='Dispositivos' icon='circle' path='#device'></MenuItem>
         </ul>
     )
 

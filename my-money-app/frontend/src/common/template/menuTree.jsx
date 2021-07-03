@@ -1,4 +1,5 @@
 import React from 'react'
+import Spacer from './spacer'
 
 const MenuTree = (props)=>{
     return (
@@ -8,7 +9,7 @@ const MenuTree = (props)=>{
                 <i className='fa fa-angle-left pull-right' />
             </a>
             <ul className='treeview-menu'>
-                {props.children}
+                <Spacer>{props.children}</Spacer>
             </ul>
         </li>
     )
