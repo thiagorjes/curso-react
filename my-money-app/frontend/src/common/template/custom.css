@@ -35,3 +35,11 @@
     display: flex;
     flex: 1;
 }
+
+.treeview-menu {
+    line-height: 35px;
+}
+
+.datetime {
+    line-height: 20px !important;
+}
