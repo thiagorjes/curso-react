@@ -1,39 +1,55 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getList } from './billingCycleActions'
+import { getList,showDelete, showUpdate } from './billingCycleActions'
 
 
 class BillingCycleList extends Component {
     componentWillMount() {
         this.props.getList()
     }
+
+    adicionaZero(numero){
+        if (numero <= 9) 
+            return "0" + numero;
+        else
+            return numero; 
+    }
+
+    retornaDataBR(data){
+        let dataAtual = new Date(data)
+        return (this.adicionaZero(dataAtual.getDate().toString()) + "/" + (this.adicionaZero(dataAtual.getMonth()+1).toString()) + "/" + dataAtual.getFullYear());
+    }    
+
     renderRows() {
         const list = this.props.list || []
         return list.map(bc => (
-            <tr key={bc.id}>
-                <td>{bc.id}</td>
+            <tr key={bc.id} className={bc.receivedValue-bc.chargedValue>=0?'bg-green alpha20':'bg-red alpha20'}>
                 <td>
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <input type="date" className="form-control datetime"  data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" value={bc.createAt.substring(0,10)}/>
-                    </div>
+                    <div className='btn '>
+                        <i className={`fa fa-${bc.receivedValue-bc.chargedValue>=0?'thumbs-up green':'thumbs-down red'}`}/>
+                    </div>                    
                 </td>
                 <td>
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <input type="date" className="form-control datetime"  data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="" value={bc.expiresAt.substring(0,10)}/>
-                    </div>
-                    </td>
+                    { this.retornaDataBR(bc.createAt) }
+                    
+                </td>
+                <td>
+                    {this.retornaDataBR(bc.expiresAt)}
+                </td>
                 <td>{bc.description}</td>
-                <td>{bc.chargedValue}</td>
-                <td>{bc.receivedValue}</td>
+                <td className={bc.receivedValue-bc.chargedValue>=0?'done':''}>&nbsp;&nbsp;R$&nbsp;{bc.chargedValue}&nbsp;&nbsp;</td>
+                <td>R$&nbsp;{bc.receivedValue}</td>
                 <td>{bc.user.name}</td>
                 <td>{bc.device.name}</td>
+                <td>
+                    <button className="btn-success spaced btn" onClick={()=>this.props.showUpdate(bc)} >
+                        <i className="fa fa-pencil"></i>
+                    </button>
+                    <button className="btn-danger spaced btn" onClick={()=>this.props.showDelete(bc)} >
+                        <i className="fa fa-trash"></i>
+                    </button>
+                </td>
             </tr>
         ))
     }
@@ -42,13 +58,13 @@ class BillingCycleList extends Component {
 
         return (
             <div>
-                <table className="table">
+                <table className="dataTable table table-hover ">
                     <thead>
-                        <tr>
-                            <th>
-                                Id
-                            </th>
-                            <th>
+                        <tr role='row'>
+                            <th className="sorting_asc">
+                                Status
+                            </th >
+                            <th className="sorting_asc">
                                 Criado Em:
                             </th>
                             <th>
@@ -69,6 +85,9 @@ class BillingCycleList extends Component {
                             <th>
                                 Dispositivo
                             </th>
+                            <th className='table-actions'>
+                                Ações
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,5 +100,5 @@ class BillingCycleList extends Component {
 }
 
 const mapStateToProps = state => ({ list: state.billingCycle.list })
-const mapDispatchToPros = dispatch => bindActionCreators({ getList }, dispatch)
+const mapDispatchToPros = dispatch => bindActionCreators({ getList,showUpdate, showDelete }, dispatch)
 export default connect(mapStateToProps, mapDispatchToPros)(BillingCycleList)

@@ -43,3 +43,42 @@
 .datetime {
     line-height: 20px !important;
 }
+
+.roundedTab {
+    border-radius: 5px 5px 0px 0px;
+}
+.rw-widget-picker {
+    min-height: 34px !important;
+}
+
+.spaced {
+    margin: 2px;
+}
+
+.table-actions {
+    min-width: 100px;
+    max-width: 100px;
+    width: 100px;
+}
+
+.bg-red.alpha20 {
+    background-color: #dd4b3920 !important;
+    color: #333  !important;
+} 
+
+.bg-green.alpha20 {
+    background-color: #00a65a20 !important;
+    color: #333 !important;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.table td{
+    line-height: 35px !important;
+}
+
+.form-control {
+    border-radius: 5px;
+}

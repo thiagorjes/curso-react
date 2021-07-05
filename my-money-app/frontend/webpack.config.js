@@ -10,6 +10,7 @@ module.exports = {
     devServer: {
         port: 8080,
         contentBase: './public',
+        disableHostCheck: true
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],
@@ -19,7 +20,7 @@ module.exports = {
             bootstrap: 'modules/admin-lte/bootstrap/js/bootstrap.js'
         }
     },
-    plugins: [ 
+    plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',

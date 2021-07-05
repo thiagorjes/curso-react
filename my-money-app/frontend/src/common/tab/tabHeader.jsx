@@ -11,7 +11,7 @@ class TabHeader extends Component {
         const visible = this.props.tab.visible[this.props.target]
         return (
             <If test={visible}>
-                <li className={selected ? 'active' : ''}>
+                <li className={`roundedTab ${selected ? 'active' : ''}`}>
                     <a href='javascript:;'
                         data-toggle='tab'
                         onClick={() => this.props.selectTab(this.props.target)}
