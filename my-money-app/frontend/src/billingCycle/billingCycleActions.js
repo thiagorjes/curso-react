@@ -5,11 +5,13 @@ import { showTabs, selectTab } from '../common/tab/tabAction'
 
 import {BILLING_CYCLES_FETCHED,GET_DEVICES,GET_USERS,CREATE_BILLING,SELECTED_DEVICE,SELECTED_USER} from './billingCycleActionTypes'
 
-const BASE_URL = 'https://localhost:5001/ControleDeDebitos'
+const BASE_URL = 'http://localhost:8081/ControleDeDebitos'
 const INITIAL_VALUES = {
     chargedValue:39.99,
     receivedValue:0.00,
-    expiresAt: new Date(Date.now()).toISOString().substring(0,10)
+    expiresAt: new Date(Date.now()).toISOString().substring(0,10),
+    credits: [{}],
+    debts: [{}]
 }
 
 export function getList(){
@@ -26,7 +28,9 @@ export function init(){
         showTabs('tabList','tabCreate'),
         selectTab('tabList'),
         getList(),
-        initialize('billingCycleForm',INITIAL_VALUES)
+        initialize('billingCycleForm',INITIAL_VALUES),
+        getDevices(),
+        getUsers()
     ]
 }
 
@@ -103,7 +107,9 @@ export function showUpdate(billingCycle){
     return [
         selectTab('tabUpdate'),
         showTabs('tabUpdate'),
-        initialize('billingCycleForm',bc)
+        initialize('billingCycleForm',bc),
+        getDevices(),
+        getUsers()
     ]
 }
 
@@ -114,6 +120,8 @@ export function showDelete(billingCycle){
     return [
         selectTab('tabDelete'),
         showTabs('tabDelete'),
-        initialize('billingCycleForm',bc)
+        initialize('billingCycleForm',bc),
+        getDevices(),
+        getUsers()
     ]
 }

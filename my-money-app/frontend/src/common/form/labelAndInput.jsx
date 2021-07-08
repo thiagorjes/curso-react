@@ -1,41 +1,41 @@
 import React from 'react'
 
-import DropdownList from 'react-widgets/DropdownList'
-import DatePicker from 'react-widgets/DatePicker'
-import NumberPicker from "react-widgets/NumberPicker";
+// import DropdownList from 'react-widgets/DropdownList'
+// import DatePicker from 'react-widgets/DatePicker'
+// import NumberPicker from "react-widgets/NumberPicker";
 
 import Grid from '../layout/grid'
 
 import 'modules/admin-lte/dist/js/app.min.js'
 
-function renderUserList({ input, data, dataKey, textField }) {
-    return (
-        <DropdownList {...input}
-            data={data}
-            dataKey='id'
-            onChange={input.onChange}
-            textField={item => item.name + '(' + item.id + ')'}
-            defaultValue={input.value} />
-    )
-}
+// function renderUserList({ input, data, dataKey, textField }) {
+//     return (
+//         <DropdownList {...input}
+//             data={data}
+//             dataKey='id'
+//             onChange={input.onChange}
+//             textField={item => item.name + '(' + item.id + ')'}
+//             defaultValue={input.value} />
+//     )
+// }
 
-function renderDeviceList({ input, data, dataKey, textField }) {
-    return (
-        <DropdownList {...input}
-            data={data}
-            dataKey='id'
-            onChange={input.onChange}
-            textField='name'
-            defaultValue={input.value} />
-    )
-}
+// function renderDeviceList({ input, data, dataKey, textField }) {
+//     return (
+//         <DropdownList {...input}
+//             data={data}
+//             dataKey='id'
+//             onChange={input.onChange}
+//             textField='name'
+//             defaultValue={input.value} />
+//     )
+// }
 
-function renderTextArea({ input, placeholder }) {
-    return (<div className="input-group">
-        <input type="text" className="form-control" placeholder={placeholder} />
-        <span className="input-group-addon"><i className="fa fa-check"></i></span>
-    </div>)
-}
+// function renderTextArea({ input, placeholder }) {
+//     return (<div className="input-group">
+//         <input type="text" className="form-control" placeholder={placeholder} />
+//         <span className="input-group-addon"><i className="fa fa-check"></i></span>
+//     </div>)
+// }
 
 
 

@@ -52,13 +52,19 @@
 }
 
 .spaced {
-    margin: 2px;
+    margin-left: 4px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
 }
 
 .table-actions {
     min-width: 100px;
-    max-width: 100px;
-    width: 100px;
+    max-width: 150px;
+    width: 150px;
+}
+
+.table > tbody > tr > td {
+    vertical-align: bottom !important;
 }
 
 .bg-red.alpha20 {
@@ -81,4 +87,13 @@
 
 .form-control {
     border-radius: 5px;
+}
+.wrapper{
+    overflow-y: auto;
+    min-height: 100%;
+    position: inherit;
+}
+body {
+    min-height: 1200px !important;
+    overflow-y: hidden;
 }

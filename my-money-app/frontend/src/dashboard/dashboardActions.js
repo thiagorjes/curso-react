@@ -1,5 +1,5 @@
 import axios from 'axios'
-const BASE_URL = 'http://localhost:5000/ControleDeDebitos'
+const BASE_URL = 'http://localhost:8081/ControleDeDebitos'
 
 export function getSummary(){
     const request = axios.get(`${BASE_URL}/ArgovixCobranca/summary`)
