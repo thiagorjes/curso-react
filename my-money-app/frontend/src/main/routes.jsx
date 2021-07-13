@@ -1,6 +1,9 @@
 import React from "react";
 import { Router, Route, IndexRoute, Redirect, hashHistory } from "react-router";
 
+import { connect } from 'react-redux'
+
+
 import Dashboard from "../dashboard/dashboard";
 import BillingCycle from "../billingCycle/billingCycle";
 import Report from "../report/report";
@@ -22,4 +25,6 @@ const Routes = (props) => {
     )
 }
 
-export default Routes
+
+const mapStateToProps = state => ({ user: state.auth.user })
+export default connect(mapStateToProps)(Routes)

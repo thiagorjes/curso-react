@@ -16,7 +16,7 @@ import Form from './billingCycleForm'
 class BillingCycle extends Component {
 
     componentWillMount() {
-        this.props.init()
+        this.props.init(this.props.user)
     }
 
     render() {
@@ -51,7 +51,7 @@ class BillingCycle extends Component {
         )
     }
 }
-const mapStateToProps = state => ({ users: state.billingCycle.users, devices: state.billingCycle.devices, selectedUser: state.billingCycle.selectedUser, selectedDevice: state.billingCycle.selectedDevice })
+const mapStateToProps = state => ({  user: state.auth.user,users: state.billingCycle.users, devices: state.billingCycle.devices, selectedUser: state.billingCycle.selectedUser, selectedDevice: state.billingCycle.selectedDevice })
 const mapDispatchToPros = dispatch => bindActionCreators({ init,create, update,remove, getUsers, getDevices, selectDevice, selectUser }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToPros)(BillingCycle)

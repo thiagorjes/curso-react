@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getList,showDelete, showUpdate } from './billingCycleActions'
+import If from '../common/operator/if'
 
 
 class BillingCycleList extends Component {
     componentWillMount() {
-        this.props.getList()
+        this.props.getList(this.props.user)
     }
 
     adicionaZero(numero){
@@ -22,8 +23,9 @@ class BillingCycleList extends Component {
     }    
 
     renderRows() {
-        const list = this.props.list || []
-        return list.map(bc => (
+        const list = this.props.list || null
+        console.log(this.props.list)
+        return !list?null:list.map(bc => (
             <tr key={bc.id} className={bc.receivedValue-bc.chargedValue>=0?'bg-green alpha20':'bg-red alpha20'}>
                 <td>
                     <div className='btn '>
@@ -42,6 +44,7 @@ class BillingCycleList extends Component {
                 <td>R$&nbsp;{bc.receivedValue}</td>
                 <td>{bc.user.name}</td>
                 <td>{bc.device.name}</td>
+                <If test={this.props.user.tcUser.attributes['gestor']=="true"}>
                 <td>
                     <button className="btn-success spaced btn" onClick={()=>this.props.showUpdate(bc)} >
                         <i className="fa fa-pencil"></i>
@@ -50,6 +53,7 @@ class BillingCycleList extends Component {
                         <i className="fa fa-trash"></i>
                     </button>
                 </td>
+                </If>
             </tr>
         ))
     }
@@ -85,9 +89,11 @@ class BillingCycleList extends Component {
                             <th>
                                 Dispositivo
                             </th>
+                            <If test={this.props.user.tcUser.attributes != undefined && this.props.user.tcUser.attributes['gestor']=="true"}>
                             <th className='table-actions'>
                                 Ações
                             </th>
+                            </If>
                         </tr>
                     </thead>
                     <tbody>
@@ -99,6 +105,6 @@ class BillingCycleList extends Component {
     }
 }
 
-const mapStateToProps = state => ({ list: state.billingCycle.list })
+const mapStateToProps = state => ({ list: state.billingCycle.list ,user: state.auth.user })
 const mapDispatchToPros = dispatch => bindActionCreators({ getList,showUpdate, showDelete }, dispatch)
 export default connect(mapStateToProps, mapDispatchToPros)(BillingCycleList)

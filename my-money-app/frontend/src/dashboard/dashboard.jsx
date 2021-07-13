@@ -12,7 +12,7 @@ import Row from '../common/layout/row'
 class Dashboard extends Component {
 
     componentWillMount(){
-        this.props.getSummary()
+        this.props.getSummary(this.props.user)
     }
 
     render(){
@@ -22,7 +22,7 @@ class Dashboard extends Component {
         let total = (creditd - debtd).toFixed(2)
         return (
             <div>
-                <ContentHeader title='Dashboard' small='Versão 1.0' />
+                <ContentHeader title='ARGOVIX - Gestão' small='Versão 1.0' />
                 <Content>
                     <Row>
                         <ValueBox cols='12 4' color='green' icon='thumbs-up' value={`R$ ${creditd}`}  text='Total Recebido' />
@@ -36,6 +36,6 @@ class Dashboard extends Component {
 }
 
 
-const mapStateToProps = state => ({summary: state.dashboard.summary})
+const mapStateToProps = state => ({summary: state.dashboard.summary, user: state.auth.user})
 const mapDispatchToProps = dispatch => bindActionCreators({getSummary}, dispatch)
 export default connect(mapStateToProps,mapDispatchToProps)(Dashboard)

@@ -2,10 +2,11 @@ import axios from 'axios'
 import {toastr} from 'react-redux-toastr'
 import {reset as resetForm, initialize} from 'redux-form'
 import { showTabs, selectTab } from '../common/tab/tabAction'
+import consts from '../consts'
 
 import {BILLING_CYCLES_FETCHED,GET_DEVICES,GET_USERS,CREATE_BILLING,SELECTED_DEVICE,SELECTED_USER} from './billingCycleActionTypes'
 
-const BASE_URL = 'http://localhost:8081/ControleDeDebitos'
+const BASE_URL = `${consts.API_URL}/ControleDeDebitos`
 const INITIAL_VALUES = {
     chargedValue:39.99,
     receivedValue:0.00,
@@ -14,23 +15,28 @@ const INITIAL_VALUES = {
     debts: [{}]
 }
 
-export function getList(){
-    const request = axios.get(`${BASE_URL}/ArgovixCobranca`)
-    
+export function getList(user){
+    const id = (user==null || user.tcUser!=undefined && user.tcUser.attributes!=undefined && user.tcUser.attributes['gestor']=="true")?null:user.id
+    const byUser = (id? '/TcUser/'+id:'')
+    console.log(user)
+    const request = axios.get(`${BASE_URL}/ArgovixCobranca${byUser}`)
     return {
         type: BILLING_CYCLES_FETCHED,
         payload: request
     }
 }
 
-export function init(){
+export function init(user){
+    const mostrar = (user==null ||  user.tcUser!=undefined && user.tcUser.attributes!=undefined && user.tcUser.attributes['gestor']=="true")?null:user.id
+    const tabs = mostrar!=null?['tabList']:['tabList','tabCreate']
+    console.log(user)
     return [
-        showTabs('tabList','tabCreate'),
+        showTabs(...tabs),
         selectTab('tabList'),
-        getList(),
+        getList(user),
         initialize('billingCycleForm',INITIAL_VALUES),
         getDevices(),
-        getUsers()
+        getUsers(user)
     ]
 }
 
@@ -49,7 +55,7 @@ function submit(values,method){
         })
             .then(resp => {
                 toastr.success('Sucesso', 'Operação Realizada com Sucesso.')
-                dispatch(init())
+                dispatch(init(null))
             }).catch(e=>{
                 toastr.error('Erro',e.response.data)
             })
@@ -68,8 +74,10 @@ export function create(values){
     return submit(values, "post")
 }
 
-export function getUsers(){
-    const request = axios.get(`${BASE_URL}/TcUser`)
+export function getUsers(user){
+    const id = (user==null || user.tcUser!=undefined && user.tcUser.attributes!=undefined && user.tcUser.attributes['gestor']=="true")?null:user.id
+    const myId = id? '/'+id:''
+    const request = axios.get(`${BASE_URL}/TcUser${myId}`)
     return {
         type: GET_USERS,
         payload: request
@@ -109,7 +117,7 @@ export function showUpdate(billingCycle){
         showTabs('tabUpdate'),
         initialize('billingCycleForm',bc),
         getDevices(),
-        getUsers()
+        getUsers(null)
     ]
 }
 
@@ -122,6 +130,6 @@ export function showDelete(billingCycle){
         showTabs('tabDelete'),
         initialize('billingCycleForm',bc),
         getDevices(),
-        getUsers()
+        getUsers(null)
     ]
 }

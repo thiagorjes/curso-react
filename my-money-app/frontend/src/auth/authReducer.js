@@ -1,4 +1,4 @@
-const userKey = 'm1nh4s3nh4f0rt3!'
+const userKey = 's00p3r_s3cr3t!'
 const INITIAL_STATE = {
     user: JSON.parse(localStorage.getItem(userKey)),
     validToken: false
@@ -7,21 +7,19 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case 'TOKEN_VALIDATED':
-            console.log('teste:')
-            console.log(action.payload)
-            console.log('fim teste:')
             if (action.payload) {
-                console.log('manteve')
                 return { ...state, validToken: true }
             } else {
                 localStorage.removeItem(userKey)
-                console.log('removeu')
                 return { ...state, validToken: false, user: null }
             }
         case 'USER_FETCHED':
-            localStorage.setItem(userKey, JSON.stringify(action.payload))
+            console.log("entrei user fetched")
+            var user = action.payload
+            user.tcUser = JSON.parse(user.tcUser)
+            localStorage.setItem(userKey, JSON.stringify(user))
             console.log('user_fetched')
-            console.log(action.payload)
+            console.log(user)
             console.log('user_fetched')
             return { ...state, user: action.payload, validToken: true }
         default:

@@ -88,10 +88,24 @@
 .form-control {
     border-radius: 5px;
 }
-.wrapper{
-    overflow-y: auto;
-    min-height: 100%;
+.container-wrapper{
+    overflow-y: hidden;
+    min-height: 1200px;
     position: inherit;
+}
+
+.content-wrapper{
+    overflow: scroll !important;
+    height: 90% !important;
+}
+
+.wrapper{
+    overflow-y: hidden;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    position: absolute;
 }
 body {
     min-height: 1200px !important;
