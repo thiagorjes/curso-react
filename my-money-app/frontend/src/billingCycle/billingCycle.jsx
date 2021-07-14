@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { create, update, remove, getUsers, getDevices, selectDevice, selectUser , init} from './billingCycleActions'
+import { create, update, remove, getUsers, getDevices, selectDevice, selectUser , init, waiting, done} from './billingCycleActions'
 
 import ContenHeader from '../common/template/contentHeader'
 import Content from '../common/template/content'
@@ -51,7 +51,7 @@ class BillingCycle extends Component {
         )
     }
 }
-const mapStateToProps = state => ({  user: state.auth.user,users: state.billingCycle.users, devices: state.billingCycle.devices, selectedUser: state.billingCycle.selectedUser, selectedDevice: state.billingCycle.selectedDevice })
-const mapDispatchToPros = dispatch => bindActionCreators({ init,create, update,remove, getUsers, getDevices, selectDevice, selectUser }, dispatch)
+const mapStateToProps = state => ({  wait: state.wait,user: state.auth.user,users: state.billingCycle.users, devices: state.billingCycle.devices, selectedUser: state.billingCycle.selectedUser, selectedDevice: state.billingCycle.selectedDevice })
+const mapDispatchToPros = dispatch => bindActionCreators({ init,create, update,remove, getUsers, getDevices, selectDevice, selectUser, waiting,done }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToPros)(BillingCycle)

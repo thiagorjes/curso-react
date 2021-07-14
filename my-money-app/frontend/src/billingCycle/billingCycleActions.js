@@ -42,11 +42,12 @@ export function init(user){
 
 function submit(values,method){
     const id = (values.id? '/'+values.id: '')
+    console.log("METHOD:"+method)
     return dispatch => {
         axios[method](`${BASE_URL}/ArgovixCobranca${id}`,{ 
             "id": values.id,
             "userId": values.userId,
-            "createAt": new Date(Date.now()).toISOString(),
+            "createAt": new Date(values.createAt).toISOString(),
             "expiresAt": new Date(values.expiresAt).toISOString(),
             "deviceId": values.deviceId,
             "description": values.description,
@@ -57,7 +58,11 @@ function submit(values,method){
                 toastr.success('Sucesso', 'Operação Realizada com Sucesso.')
                 dispatch(init(null))
             }).catch(e=>{
-                toastr.error('Erro',e.response.data)
+                document.getElementById('formsub_tt').disabled=false;
+                e.response.data.messages.forEach(element => {
+                    toastr.error('Erro',element) 
+                });
+                
             })
     }
 }

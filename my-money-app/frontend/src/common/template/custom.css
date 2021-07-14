@@ -87,6 +87,7 @@
 
 .form-control {
     border-radius: 5px;
+    height: 38px;
 }
 .container-wrapper{
     overflow-y: hidden;
@@ -110,4 +111,39 @@
 body {
     min-height: 1200px !important;
     overflow-y: hidden;
+}
+.error.invalid-feedback {
+    color:red;
+    font-size: 10px;
+    float: inline-start;
+}
+.error.invalid-label {
+    color:red;
+}
+.error.invalid-input {
+    color:red;
+    border-color: red;
+}
+
+
+.warning.invalid-feedback {
+    color:orange;
+    font-size: 10px;
+    float: inline-start;
+}
+.warning.invalid-label {
+    color:orange;
+}
+.warning.invalid-input {
+    color:orange;
+    border-color: orange;
+}
+.oculto {
+    font-size: 0px;
+    color: transparent;
+    display: none;
+}
+
+.autocomplete-field {
+    height: 34px;
 }
