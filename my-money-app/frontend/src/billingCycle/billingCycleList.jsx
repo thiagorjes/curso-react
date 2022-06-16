@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getList,showDelete, showUpdate } from './billingCycleActions'
 import If from '../common/operator/if'
+import {MyDataTable,DataTable} from '../common/widget/dataTable'
 
 
 class BillingCycleList extends Component {
@@ -100,6 +101,8 @@ class BillingCycleList extends Component {
                         {this.renderRows()}
                     </tbody>
                 </table>
+
+                <MyDataTable></MyDataTable>
             </div>
         )
     }

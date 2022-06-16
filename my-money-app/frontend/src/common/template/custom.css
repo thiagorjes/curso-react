@@ -1,3 +1,8 @@
+.wrapper.login-page {
+    background-color: #cccccc !important;
+}
+
+
 .icone {
     display: flex;
     width: 40px;
@@ -45,7 +50,12 @@
 }
 
 .roundedTab {
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;    
+    border-top: 3px solid #007bff;
+}
+
+.card-primary.card-outline-tabs .card-header a.active {
+    border-top: 3px solid #007bff;
 }
 .rw-widget-picker {
     min-height: 34px !important;
@@ -80,16 +90,16 @@
 .done {
     text-decoration: line-through;
 }
-
+/* 
 .table td{
     line-height: 35px !important;
-}
-
+} */
+/* 
 .form-control {
     border-radius: 5px;
     height: 38px;
-}
-.container-wrapper{
+} */
+/* .container-wrapper{
     overflow-y: hidden;
     min-height: 1200px;
     position: inherit;
@@ -107,7 +117,7 @@
     left:0px;
     right:0px;
     position: absolute;
-}
+} */
 body {
     min-height: 1200px !important;
     overflow-y: hidden;
@@ -125,7 +135,14 @@ body {
     border-color: red;
 }
 
+.input-group-append {
+    height: 38px;
+    
+}
 
+.mb-3{
+    margin-bottom: 3px;
+}
 .warning.invalid-feedback {
     color:orange;
     font-size: 10px;

@@ -6,8 +6,12 @@ import Select from 'react-select'
 
 import Grid from '../layout/grid'
 
-import 'modules/admin-lte/dist/js/app.min.js'
+// import 'modules/admin-lte/dist/js/app.min.js'
 
+// "admin-lte": "^2.3.6",
+
+
+import 'modules/admin-lte/dist/js/adminlte.min.js'
 
 const inputElement = (props, classes) => {
     switch (props.type) {

@@ -9,12 +9,12 @@ const App = (props) => {
     return (
         <div className='wrapper'>
             <Header/>
-            <SideBar/>
+            {/* <SideBar/>
             <div className='content-wrapper'>
                 {props.children}
             </div>
             <Footer/>
-            <Messages/>
+            <Messages/> */}
         </div>
     )
 }

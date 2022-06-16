@@ -6,7 +6,9 @@ import If from '../operator/if'
 
 const Menu = (props) => {
     return (
-        <ul className='sidebar-menu'>
+
+      <nav className="mt-2">
+        <ul className='nav nav-pills nav-sidebar flex-column'>
             <If test={(props.user.tcUser.attributes!=undefined && props.user.tcUser.attributes['gestor']=="true")}>
             <MenuItem path='/' label='Dashboard' icon='dashboard' />
             <MenuTree label='Cadastro' icon='edit'>
@@ -22,6 +24,7 @@ const Menu = (props) => {
             {/* <MenuItem label='Relatórios' icon='circle' path='report'></MenuItem>
             <MenuItem label='Dispositivos' icon='circle' path='device'></MenuItem> */}
         </ul>
+        </nav>
     )
 
 }

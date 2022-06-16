@@ -11,38 +11,42 @@ class Navbar extends Component {
     changeOpen() {
         this.setState({ open: !this.state.open })
     }
+    
     render() {
         const { name, email } = this.props.user || {}
         return (
-            <div className="navbar-custom-menu">
-                <ul className="nav navbar-nav">
-                    <li onMouseLeave={() => this.changeOpen()}
-                        className={`dropdown user user-menu ${this.state.open ? 'open' :
-                            ''}`}>
-                        <a href="javascript:;" onClick={() => this.changeOpen()}
-                            aria-expanded={this.state.open ? 'true' : 'false'}
-                            className="dropdown-toggle"
-                            data-toggle="dropdown">
+
+            <ul className="nav navbar-nav">
+                <li>
+                    <a class="nav-link" data-widget="pushmenu" href="#" onClick={this.toggle}><i class="fas fa-bars"></i></a>
+                </li>
+                <li onMouseLeave={() => this.changeOpen()}
+                    className={`nav-item dropdown user user-menu ${this.state.open ? 'open' :
+                        ''}`}>
+                    <a href="javascript:;" onClick={() => this.changeOpen()}
+                        aria-expanded={this.state.open ? 'true' : 'false'}
+                        className="dropdown-toggle"
+                        data-toggle="dropdown">
+                        <img src="http://lorempixel.com/160/160/abstract"
+                            className="user-image" alt="User Image" />
+                        <span className="hidden-xs">{name}</span>
+                    </a>
+                    <ul className="dropdown-menu">
+                        <li className="user-header">
                             <img src="http://lorempixel.com/160/160/abstract"
-                                className="user-image" alt="User Image" />
-                            <span className="hidden-xs">{name}</span>
-                        </a>
-                        <ul className="dropdown-menu">
-                            <li className="user-header">
-                                <img src="http://lorempixel.com/160/160/abstract"
-                                    className="img-circle" alt="User Image" />
-                                <p>{name}<small>{email}</small></p>
-                            </li>
-                            <li className="user-footer">
-                                <div className="pull-right">
-                                    <a href="#" onClick={this.props.logout}
-                                        className="btn btn-default btn-flat">Sair</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+                                className="img-circle" alt="User Image" />
+                            <p>{name}<small>{email}</small></p>
+                        </li>
+                        <li className="user-footer">
+                            <div className="pull-right">
+                                <a href="#" onClick={this.props.logout}
+                                    className="btn btn-default btn-flat">Sair</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
         )
     }
 }

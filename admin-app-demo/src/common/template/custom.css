@@ -1,0 +1,128 @@
+.icone {
+    display: flex;
+    width: 40px;
+    height: 23px;
+    margin: auto 5px auto 5px;
+}
+.main-sidebar {
+    height: 1200px;
+}
+.texto {
+    font-family: 'Ubuntu-Bold','Ubuntu';
+    font-size: 23px;
+    line-height: 50px;
+    padding: 0px 0px 0px 0px;
+    display: flex;    
+    color: #dedede;
+}
+.brand-link .brand-image {
+    float: left;
+    line-height: .8;
+    margin-left: 0px;
+    margin-right: 3px;
+    margin-top: 0px;
+    max-height: 27px;
+    width: auto;
+}
+.logo {
+    display: flex !important;
+    padding: 0px !important;
+    text-align: left !important;
+}
+
+.spacer {
+    padding-left: 35px;
+    display: flex;
+    flex: 1;
+}
+/* 
+.treeview-menu {
+    line-height: 35px;
+} */
+/* 
+.datetime {
+    line-height: 20px !important;
+} */
+
+.roundedTab {
+    border-radius: 5px 5px 0px 0px;    
+    border-top: 3px solid #007bff;
+}
+
+/* .card-primary.card-outline-tabs .card-header a.active {
+    border-top: 3px solid #007bff;
+} */
+.rw-widget-picker {
+    min-height: 34px !important;
+}
+
+.spaced {
+    margin-left: 4px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.table-actions {
+    min-width: 100px;
+    max-width: 150px;
+    width: 150px;
+}
+
+.table > tbody > tr > td {
+    vertical-align: bottom !important;
+}
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.bg-red.alpha20.even {
+    background-color: #862e2320 !important;
+    color: #333  !important;
+} 
+.bg-red.alpha20.odd {
+    background-color: #dd4b3920 !important;
+    color: #333  !important;
+} 
+
+.bg-green.alpha20.odd {
+    background-color: #00a65a20 !important;
+    color: #333 !important;
+}
+.bg-green.alpha20.even {
+    background-color: #005c3320 !important;
+    color: #333 !important;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+
+
+.input-group-append {
+    height: 38px;
+    
+}
+
+.mb-3{
+    margin-bottom: 3px;
+}
+
+.oculto {
+    font-size: 0px;
+    color: transparent;
+    display: none;
+}
+
+.error.is-invalid .css-yk16xz-control {
+    border-color: red;
+}
+
+
+.invalid-feedback{
+    display: block !important;
+}

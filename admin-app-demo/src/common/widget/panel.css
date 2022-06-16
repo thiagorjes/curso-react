@@ -1,0 +1,30 @@
+.argovixPanelTitle {
+    background-color: #40aebb;
+    border: 3px solid #40aebb;
+    color: #efefef;
+    text-shadow: 1px 1px px gray;
+    border-bottom: 1px solid #aaa;
+    min-height: 30px;
+    line-height: 30px;
+    padding: 5px;
+    overflow: hidden;
+
+    
+}
+
+.argovixPanelContent {
+    background-color: white;
+    border: 3px solid #40aebb;
+    border-top: transparent;
+    padding: 5px;
+    min-height: 100px;
+    overflow: hidden;
+}
+
+.argovixPanel {
+    border-radius: 3px 3px 3px 3px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 4px #00000038;
+    overflow: hidden;
+
+}

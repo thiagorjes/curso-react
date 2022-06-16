@@ -1,0 +1,90 @@
+.icone {
+    display: flex;
+    width: 40px;
+    height: 23px;
+    margin: auto 5px auto 5px;
+}
+
+.texto {
+    font-family: 'Ubuntu-Bold','Ubuntu';
+    font-size: 23px;
+    line-height: 50px;
+    padding: 0px 0px 0px 0px;
+    display: flex;    
+    color: #dedede;
+}
+
+.logo {
+    display: flex !important;
+    padding: 0px !important;
+    text-align: left !important;
+}
+
+.main-header {
+    padding: 0px;
+}
+
+.main-footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.spacer {
+    padding-left: 35px;
+    display: flex;
+    flex: 1;
+}
+
+.treeview-menu {
+    line-height: 35px;
+}
+
+.datetime {
+    line-height: 20px !important;
+}
+
+.roundedTab {
+    border-radius: 5px 5px 0px 0px;
+}
+.rw-widget-picker {
+    min-height: 34px !important;
+}
+
+.spaced {
+    margin-left: 4px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.table-actions {
+    min-width: 100px;
+    max-width: 150px;
+    width: 150px;
+}
+
+.table > tbody > tr > td {
+    vertical-align: bottom !important;
+}
+
+.bg-red.alpha20 {
+    background-color: #dd4b3920 !important;
+    color: #333  !important;
+} 
+
+.bg-green.alpha20 {
+    background-color: #00a65a20 !important;
+    color: #333 !important;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.table td{
+    line-height: 35px !important;
+}
+
+.form-control {
+    border-radius: 5px;
+}
